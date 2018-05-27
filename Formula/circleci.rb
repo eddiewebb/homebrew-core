@@ -15,7 +15,7 @@ class Circleci < Formula
     # assert basic script execution
     assert_match version.to_s, shell_output("#{bin}/circleci --version")
     # assert script fails for missing docker (docker not on homebrew CI servers)
-    command_output = shell_output("#{bin}/circleci config validate 2>&1", 1)
-    assert_match /.*Is the docker daemon running.*/, command_output
+    output = shell_output("#{bin}/circleci config validate 2>&1", 1)
+    assert_match "Is the docker daemon running", output
   end
 end
