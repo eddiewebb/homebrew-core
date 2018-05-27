@@ -5,6 +5,8 @@ class Circleci < Formula
   version "0.0.4705-deba4df"
   sha256 "0c2b76afc04f3883ad46aa095509749faed3d7ae392fe54399aba60e6721f4a3"
 
+  bottle :unneeded
+
   depends_on "docker"
 
   def install
