@@ -1,15 +1,15 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2018.05.07.00.tar.gz"
-  sha256 "d3d5b653070bd21e8b1f0bfc26a28bb0948fd6d81a5db67bed60659e9dabb547"
+  url "https://github.com/facebook/folly/archive/v2018.05.28.00.tar.gz"
+  sha256 "e4b7e4274c252a6ddddd819002f4f8f8f84ed15e757f885c7971d4a157f68ba4"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "a0763bdb46878f3ca9559a4b5045abee55f4f30d9541eecfcf84e9718272765d" => :high_sierra
-    sha256 "764986fbe3dba7bd50f384bd7468e1048ef37ab25427dab96a3c622cfa967fba" => :sierra
-    sha256 "a7d1717d60a9657c5d2d2fe7fab834a8d1458cf0d8109fd636dbe5e386d67107" => :el_capitan
+    sha256 "e46f4d129c57dbc580fe23a1eb14267146ac9b5ae90453b8680c98a64b78260b" => :high_sierra
+    sha256 "85b817e7abea44d03b382affe150c863d44b9553012ec5984ec9efc6a344449a" => :sierra
+    sha256 "bf2fb2315809a96d384f5f091511794b58293fa9f5854f3da93189445814599b" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -34,23 +34,6 @@ class Folly < Formula
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
-
-  # Remove for > 2018.05.07.00
-  # Fix build failure "error: no matching function for call to 'min'"
-  # Upstream commit from 7 May 2018 "Use size_t for
-  # ThreadPoolExecutor::getPendingTaskCountImpl"
-  patch do
-    url "https://github.com/facebook/folly/commit/a463b55ed3.patch?full_index=1"
-    sha256 "b72c88b081f204caddfd4fd2e7b49f43bbad7cc15f6214793993204ddafd405d"
-  end
-
-  # Remove for > 2018.05.07.00
-  # Fixes an issue with the first patch above
-  # Upstream commit from 8 May 2018 "Fix ThreadPoolExecutor::getPendingTaskCount decl"
-  patch do
-    url "https://github.com/facebook/folly/commit/bf237b575e.patch?full_index=1"
-    sha256 "2216295c4155b64e3d6130e049fac77c1ecf4b10209dfb688285d4d4c17bd3dc"
-  end
 
   def install
     ENV.cxx11

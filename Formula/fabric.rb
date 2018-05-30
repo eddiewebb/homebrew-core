@@ -3,15 +3,15 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "http://www.fabfile.org"
-  url "https://github.com/fabric/fabric/archive/2.0.0.tar.gz"
-  sha256 "3153d65a9ea146a4e63c26081f0fe6d4ad30b781e9628c7749e6b8d2cb96739c"
+  url "https://github.com/fabric/fabric/archive/2.1.3.tar.gz"
+  sha256 "928bb460370f08b76f9c65fb8898cfb7803b64da51dc971990a3dfd2c5cf77ba"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
     cellar :any
-    sha256 "11b041f338c85ec97d556bf96d17b7d209bacdae6fb572220b414c19c68af1a5" => :high_sierra
-    sha256 "550dc145f52916a77219d919e453af72c2d6ce213ee37f383081aff9e02a2da0" => :sierra
-    sha256 "9387670f1baf97ed0d429a3d2b40e813de0573da0cf3c10b616131cca1101690" => :el_capitan
+    sha256 "13d13d1841c8a7457286cace80d3f2f5b71ee5a121b76fa6e5ce16e66b9e93a0" => :high_sierra
+    sha256 "f12bc2648294d05e21f7d750e09f911430d39b6523664306433ab8576eabc598" => :sierra
+    sha256 "807d34f8415a81d331f28ec976ac1ef260c879b4e0508040b78510483444b536" => :el_capitan
   end
 
   depends_on "python@2"
@@ -63,8 +63,8 @@ class Fabric < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"
-    sha256 "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"
+    url "https://files.pythonhosted.org/packages/0d/33/3466a3210321a02040e3ab2cd1ffc6f44664301a5d650a7e44be1dc341f2/pyasn1-0.4.3.tar.gz"
+    sha256 "fb81622d8f3509f0026b0683fe90fea27be7284d3826a5f2edf97f69151ab0fc"
   end
 
   resource "pycparser" do

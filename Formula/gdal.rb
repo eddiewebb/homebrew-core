@@ -1,14 +1,13 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.2.4/gdal-2.2.4.tar.xz"
-  sha256 "441eb1d1acb35238ca43a1a0a649493fc91fdcbab231d0747e9d462eea192278"
-  revision 2
+  url "https://download.osgeo.org/gdal/2.3.0/gdal-2.3.0.tar.xz"
+  sha256 "6f75e49aa30de140525ccb58688667efe3a2d770576feb7fbc91023b7f552aa2"
 
   bottle do
-    sha256 "9c734fffc287c4ed453bc6d9d89d5d5431f979c2ec33466ee6bdf081c86db547" => :high_sierra
-    sha256 "71d31162f4c5a16893fc1f928441b6376bb8d765fbd01c7b6642a3f4f193869f" => :sierra
-    sha256 "6497b2e4720a4ffeda32ff7c49e2017c95c4e868bf2f11bf55903e9b02916f6c" => :el_capitan
+    sha256 "00b28455769c3d5d6ea13dc119f213f320c247489cb2ce9d03f7791d4b53919b" => :high_sierra
+    sha256 "1365de6a18caeb84d6a50e466a63be9c7541b1fab21edfc3012812157464f2c0" => :sierra
+    sha256 "8c0fd81eda5a91c8a75a78795f96b6dd9c53e74974bd38cc004b55a44ae95932" => :el_capitan
   end
 
   head do
@@ -33,8 +32,11 @@ class Gdal < Formula
   depends_on "libspatialite"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "numpy"
   depends_on "pcre"
   depends_on "proj"
+  depends_on "python"
+  depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
 
   depends_on "mysql" => :optional
@@ -132,6 +134,14 @@ class Gdal < Formula
     system "make"
     system "make", "install"
 
+    if build.stable? # GDAL 2.3 handles Python differently
+      cd "swig/python" do
+        system "python3", *Language::Python.setup_install_args(prefix)
+        system "python2", *Language::Python.setup_install_args(prefix)
+      end
+      bin.install Dir["swig/python/scripts/*.py"]
+    end
+
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
     system "make", "install-man", "INST_MAN=#{man}"
@@ -143,5 +153,9 @@ class Gdal < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
+    if build.stable? # GDAL 2.3 handles Python differently
+      system "python3", "-c", "import gdal"
+      system "python2", "-c", "import gdal"
+    end
   end
 end

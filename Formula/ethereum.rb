@@ -1,15 +1,15 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://ethereum.github.io/go-ethereum/"
-  url "https://github.com/ethereum/go-ethereum/archive/v1.8.7.tar.gz"
-  sha256 "8e89536400adc7aa7ee630faef8acecdad0b9abad095d8fd46b8960737a80610"
+  url "https://github.com/ethereum/go-ethereum/archive/v1.8.9.tar.gz"
+  sha256 "532749f0640e83a16ada0f3e9be2a15ba9a513024828845400c388827474671e"
   head "https://github.com/ethereum/go-ethereum.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82c1c98cb185a5c9b4e52ac396002e06dc12e9aef8a06226cc573ebc70bc3765" => :high_sierra
-    sha256 "1cc7fad73708cd295bb13318934bd33096a44bac6f5e2fe08252378b108b3577" => :sierra
-    sha256 "be2c06c7e2ced6d7037a0757feab7d4645ca087f00221d4447b6343ca74dab8b" => :el_capitan
+    sha256 "b70214f0bbae04b230ad3e72fae00bb3e7b1894f9fe7ca8ff6eb6a49942e4189" => :high_sierra
+    sha256 "de8106a6747e86607887945aa77942fa8136a151b53083adf3afdce1a5b5ede0" => :sierra
+    sha256 "4d3aa83665dafb254f6e1341c241cf059739fa1a13cdd61c138b9b8447c36a5b" => :el_capitan
   end
 
   depends_on "go" => :build

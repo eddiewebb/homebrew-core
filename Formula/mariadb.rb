@@ -1,18 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.14/source/mariadb-10.2.14.tar.gz"
-  sha256 "3443ec2d6e8af1eba49d097f6b2f6741c8d94b75abf19b8dd5753608f0703f7e"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.7/source/mariadb-10.3.7.tar.gz"
+  sha256 "e990afee6ae7cf9ac40154d0e150be359385dd6ef408ad80ea30df34e2c164cf"
 
   bottle do
-    sha256 "21f061bc09ec9a870d32665026d9b8d118d60931fefa1a4b56e66bd99f7b507d" => :high_sierra
-    sha256 "55abe7bc4a21f35e7d9daea7414c13375f719f7d388bf5b0a67f6383cce0a60f" => :sierra
-    sha256 "06157e5ae3203c9263fc99f6edc428922439cd8a632fc67dca8d0cb06a12e74f" => :el_capitan
-  end
-
-  devel do
-    url "https://downloads.mariadb.org/f/mariadb-10.3.6/source/mariadb-10.3.6.tar.gz"
-    sha256 "4957dff3514ae715ef7db3d8324924afbb11a1760bd6ab679e217915969c0f37"
+    sha256 "87ef3b34b0c9a2c073c04e54112cb6dfc16d93e7481a6f28362a2b76cf8361ee" => :high_sierra
+    sha256 "e941f209a0e233308a59fec74f5c82323aa66eda6eccd04ad9b0c5ecc790a9be" => :sierra
+    sha256 "75158b86e0f73abdbc9aacd661de4671db56ebb2530410fc7fa6d37ccd6e1b9d" => :el_capitan
   end
 
   option "with-test", "Keep test when installing"
